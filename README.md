@@ -23,8 +23,7 @@
 
 **Innovation:** Industry-first **Adaptive Verification** dynamically adjusts scrutiny based on real-time risk - 87% fast-tracked, 11% enhanced checks, 2% manual review.
 
-**Proof:** 15,247 LOC production code | 13/13 tests passing | 14 microservices | 25+ APIs | Real AI models | $78K-$118K annual savings per 10K users
-
+**Proof:** 15,247 LOC production code | 13/13 tests passing | 14 microservices | 25+ APIs | Real AI models | 
 ---
 
 </div>
@@ -36,9 +35,6 @@
 - [🚀 Our Solution](#-our-solution)
 - [💡 Key Innovations](#-key-innovations)
   - [🔐 Enterprise Security](#-enterprise-security)
-  - [🧠 AI-Powered Verification](#-ai-powered-verification)
-  - [🎨 Adaptive Verification System](#-adaptive-verification-system)
-  - [📊 Compliance & Governance](#-compliance--governance)
 - [📈 Platform Performance](#-platform-performance)
 - [🔬 Live Demonstrations](#-live-demonstrations)
 - [⚙️ Technical Architecture](#️-technical-architecture)
@@ -55,6 +51,22 @@
 - [💼 Business Impact](#-business-impact)
 - [👨‍💻 About the Developer](#-about-the-developer)
 - [⚖️ License & Disclaimer](#️-license--disclaimer)
+
+---
+
+## 🏗️ **System Architecture**
+
+![AegisKYC System Architecture](images/SystemArchUpdated.png)
+
+*5-layer microservices architecture with 14 independent services, supporting 100+ concurrent users with 8-12 minute end-to-end verification.*
+
+---
+
+## 🗄️ **Database Design**
+
+![AegisKYC Database Schema](images/dbdesign.png)
+
+*MongoDB Atlas with 14 collections, AES-256-GCM encryption, 140ms connection, 8ms average query time.*
 
 ---
 
@@ -326,260 +338,15 @@ Verified Match (100% accuracy)
 - Performance: 140ms connection, 8ms queries
 - Collections: users, kyc_requests, documents, biometrics, risk_scores, behavioral_signals, device_metadata, audit_logs, sessions, consent_ledger, security_events, analytics, organizations, cryptographic_credentials
 
-**Security Layer:**
-- Encryption: AES-256-GCM (PII), RSA-2048 (signatures), PBKDF2-SHA256 (passwords), TLS 1.3 (transport)
-- Access Control: RBAC, session management, rate limiting (100 req/min)
-- Compliance: GDPR, SOC 2 Type II, PCI DSS, AML screening
-│  │  🔟 bias_detection_service.py        → Fairness monitoring         │    │
-│  │      ├─ Demographic disparity analysis                             │    │
-│  │      ├─ Model fairness metrics                                     │    │
-│  │      └─ Bias alerts                                                │    │
-│  │                                                                     │    │
-│  │  1️⃣1️⃣ manual_review_queue.py          → Human oversight            │    │
-│  │      ├─ High-risk case escalation                                  │    │
-│  │      ├─ Review assignment                                          │    │
-│  │      └─ Decision tracking                                          │    │
-│  │                                                                     │    │
-│  │  1️⃣2️⃣ audit_log_service.py            → Compliance logging         │    │
-│  │      ├─ File-based immutable logs (YYYY-MM-DD.txt)                 │    │
-│  │      ├─ 5 event categories                                         │    │
-│  │      └─ 7-year retention                                           │    │
-│  │                                                                     │    │
-│  │  1️⃣3️⃣ document_validator.py           → Document processing        │    │
-│  │      ├─ Quality assessment                                         │    │
-│  │      ├─ Tamper detection                                           │    │
-│  │      └─ Format validation                                          │    │
-│  │                                                                     │    │
-│  │  1️⃣4️⃣ real_validation_routes.py       → Real-time APIs             │    │
-│  │      ├─ OCR text extraction                                        │    │
-│  │      ├─ Face matching                                              │    │
-│  │      └─ Deepfake detection                                         │    │
-│  │                                                                     │    │
-│  └─────────────────────┬───────────────────────────────────────────────    │
-│                        │                                                     │
-│                        ▼                                                     │
-│  ┌────────────────────────────────────────────────────────────────────┐    │
-│  │                      AI/ML LAYER                                    │    │
-│  ├────────────────────────────────────────────────────────────────────┤    │
-│  │                                                                     │    │
-│  │  🤖 AI Models (Real-Time Inference):                               │    │
-│  │                                                                     │    │
-│  │  📝 OCR Engine (Tesseract 5.0 + OpenCV)                            │    │
-│  │  ├─ Processing: 1.6ms                                              │    │
-│  │  ├─ Accuracy: 95.7%                                                │    │
-│  │  ├─ Languages: 100+                                                │    │
-│  │  └─ Extracts: Name, DOB, ID numbers, addresses                     │    │
-│  │                                                                     │    │
-│  │  🎭 Deepfake Detection (CNN + Liveness)                            │    │
-│  │  ├─ Processing: 38ms                                               │    │
-│  │  ├─ Accuracy: 98.5%                                                │    │
-│  │  ├─ Layers: Liveness + Texture + Frequency analysis                │    │
-│  │  └─ Checks: Blink, smile, head movement                            │    │
-│  │                                                                     │    │
-│  │  👤 Face Matching (Image Comparison)                               │    │
-│  │  ├─ Processing: 18ms                                               │    │
-│  │  ├─ Algorithm: Feature extraction + similarity score               │    │
-│  │  └─ Threshold: 85% match required                                  │    │
-│  │                                                                     │    │
-│  │  🖱️ Behavioral ML (Pattern Recognition)                            │    │
-│  │  ├─ Processing: 18ms                                               │    │
-│  │  ├─ Bot Detection: 97%                                             │    │
-│  │  ├─ Metrics: 12 behavioral markers                                 │    │
-│  │  └─ Features: Typing rhythm, mouse velocity, hesitations           │    │
-│  │                                                                     │    │
-│  │  🔍 Document Tamper Detection (Image Forensics)                    │    │
-│  │  ├─ Processing: 37ms                                               │    │
-│  │  ├─ Methods: Edge detection, compression artifacts                 │    │
-│  │  └─ Alerts: Photoshop, copy-paste, digital alterations             │    │
-│  │                                                                     │    │
-│  └─────────────────────┬───────────────────────────────────────────────    │
-│                        │                                                     │
-│                        ▼                                                     │
-│  ┌────────────────────────────────────────────────────────────────────┐    │
-│  │                      DATA LAYER                                     │    │
-│  ├────────────────────────────────────────────────────────────────────┤    │
-│  │                                                                     │    │
-│  │  🗄️ MongoDB Atlas (Cloud NoSQL Database)                           │    │
-│  │                                                                     │    │
-│  │  📊 14 Collections:                                                 │    │
-│  │  ├─ users                → User accounts (encrypted PII)           │    │
-│  │  ├─ kyc_requests         → Verification state tracking             │    │
-│  │  ├─ documents            → Document metadata & hashes              │    │
-│  │  ├─ biometrics           → Face embeddings (encrypted)             │    │
-│  │  ├─ risk_scores          → Risk assessment history                 │    │
-│  │  ├─ behavioral_signals   → Keystroke/mouse patterns                │    │
-│  │  ├─ device_metadata      → Device fingerprints                     │    │
-│  │  ├─ audit_logs           → Compliance events                       │    │
-│  │  ├─ sessions             → Active user sessions                    │    │
-│  │  ├─ consent_ledger       → GDPR consent tracking                   │    │
-│  │  ├─ security_events      → Anomaly alerts                          │    │
-│  │  ├─ analytics            → Usage metrics                           │    │
-│  │  ├─ organizations        → Corporate accounts                      │    │
-│  │  └─ cryptographic_credentials → Signed KYC proofs                  │    │
-│  │                                                                     │    │
-│  │  ⚡ Performance:                                                    │    │
-│  │  ├─ Connection: 140ms                                              │    │
-│  │  ├─ Write: 8ms average                                             │    │
-│  │  ├─ Read: 8ms average                                              │    │
-│  │  └─ Indexing: Optimized for user_id, email, credential_id          │    │
-│  │                                                                     │    │
-│  └─────────────────────────────────────────────────────────────────────    │
-│                                                                              │
-│  ┌────────────────────────────────────────────────────────────────────┐    │
-│  │                      SECURITY LAYER                                 │    │
-│  ├────────────────────────────────────────────────────────────────────┤    │
-│  │                                                                     │    │
-│  │  🔐 Encryption (At Rest & In Transit):                             │    │
-│  │  ├─ AES-256-GCM (PII encryption)                                   │    │
-│  │  ├─ RSA-2048 (Digital signatures)                                  │    │
-│  │  ├─ PBKDF2-SHA256 (Password hashing)                               │    │
-│  │  ├─ TLS 1.3 (HTTPS communication)                                  │    │
-│  │  └─ Unique nonces (0% collision in 100 tests)                      │    │
-│  │                                                                     │    │
-│  │  🛡️ Access Control:                                                │    │
-│  │  ├─ Role-Based Access (User/Organization/Admin)                    │    │
-│  │  ├─ Session management (secure cookies)                            │    │
-│  │  ├─ Rate limiting (100 req/min)                                    │    │
-│  │  └─ Brute-force protection                                         │    │
-│  │                                                                     │    │
-│  │  📝 Compliance:                                                     │    │
-│  │  ├─ GDPR (consent ledger, right to deletion)                       │    │
-│  │  ├─ SOC 2 Type II (audit logs, access controls)                    │    │
-│  │  ├─ PCI DSS (secure card handling)                                 │    │
-│  │  └─ AML (anti-money laundering screening)                          │    │
-│  │                                                                     │    │
-│  └─────────────────────────────────────────────────────────────────────    │
-│                                                                              │
-└──────────────────────────────────────────────────────────────────────────────┘
-```
+
 
 ### **Data Flow Example: Complete KYC Journey**
 
-```
-┌─────────────────────────────────────────────────────────────────────┐
-│  USER JOURNEY: Low-Risk KYC Verification (8-12 minutes)             │
-├─────────────────────────────────────────────────────────────────────┤
-│                                                                      │
-│  Step 0: Pre-Check (AI Security Layer)                             │
-│  ├─ User opens kyc_complete.html                                   │
-│  ├─ JavaScript generates device fingerprint (Canvas + WebGL)       │
-│  ├─ POST /api/kyc/generate-device-fingerprint                      │
-│  ├─ device_fingerprint_service → MongoDB (device_metadata)         │
-│  ├─ GET geolocation (browser GPS)                                  │
-│  ├─ POST /api/kyc/verify-geolocation                               │
-│  ├─ geolocation_service → IP-API lookup → VPN detection            │
-│  └─ Risk Score: 15/100 (Low) → Route to fast-track flow ✅         │
-│                                          Time: 30 seconds            │
-│                                                                      │
-│  Step 1: Personal Information                                      │
-│  ├─ User fills form (name, DOB, address, etc.)                     │
-│  ├─ POST /api/kyc/submit-personal-info                             │
-│  ├─ identity_vault → AES-256-GCM encrypt phone, DOB, address       │
-│  ├─ MongoDB (users collection)                                     │
-│  └─ Response: "Information saved ✅"                                │
-│                                          Time: 2 minutes            │
-│                                                                      │
-│  Step 2: Document Upload                                           │
-│  ├─ User uploads passport photo                                    │
-│  ├─ POST /api/kyc/upload-document (multipart/form-data)            │
-│  ├─ document_validator → quality check (lighting, blur)            │
-│  ├─ OCR model (Tesseract) → extract name, DOB, passport #          │
-│  ├─ Cross-reference with Step 1 data                               │
-│  ├─ MongoDB (documents collection)                                 │
-│  └─ Response: "Passport verified ✅ (Match: 98%)"                   │
-│                                          Time: 3 minutes            │
-│                                                                      │
-│  Step 3: Facial Verification                                       │
-│  ├─ User captures selfie via webcam                                │
-│  ├─ POST /api/kyc/verify-face                                      │
-│  ├─ Deepfake detection → liveness check (blink prompt)             │
-│  ├─ Face matching → passport photo vs selfie                       │
-│  ├─ Score: 92% match (threshold: 85%)                              │
-│  ├─ MongoDB (biometrics collection)                                │
-│  └─ Response: "Face verified ✅"                                    │
-│                                          Time: 2 minutes            │
-│                                                                      │
-│  Step 4: Behavioral Check (Background)                             │
-│  ├─ behavioral_trust_analyzer tracks form interactions             │
-│  ├─ Keystroke rhythm, mouse movements collected                    │
-│  ├─ Bot detection: Human (97% confidence)                          │
-│  ├─ MongoDB (behavioral_signals)                                   │
-│  └─ Trust score: 88/100 ✅                                          │
-│                                          Time: 1 minute (automatic) │
-│                                                                      │
-│  Step 5: Final Review                                              │
-│  ├─ User sees summary of all captured data                         │
-│  ├─ Consent checkbox + privacy policy acceptance                   │
-│  ├─ POST /api/kyc/submit-consent                                   │
-│  └─ MongoDB (consent_ledger)                                       │
-│                                          Time: 1 minute             │
-│                                                                      │
-│  Step 6: Processing & Decision                                     │
-│  ├─ POST /api/kyc/complete                                         │
-│  ├─ adaptive_verification_service → compile all data               │
-│  ├─ Final risk score: 18/100 (Low)                                 │
-│  ├─ explainable_scoring → generate confidence scores               │
-│  ├─ Decision: APPROVED (no manual review needed)                   │
-│  ├─ cryptographic_credential_service:                              │
-│  │   ├─ Generate credential ID: CRED-2025-ABC123                   │
-│  │   ├─ RSA-2048 sign verification summary                         │
-│  │   └─ Set expiry: 2030-11-21                                     │
-│  ├─ audit_log_service → log approval event                         │
-│  ├─ MongoDB (kyc_requests, cryptographic_credentials)              │
-│  └─ Response: "KYC Approved ✅ Credential issued"                   │
-│                                          Time: 3 seconds            │
-│                                                                      │
-│  🏆 TOTAL TIME: 8 minutes 33 seconds                                │
-│  💰 COST: $0.15                                                     │
-│  ✅ STATUS: Auto-approved (no human intervention)                   │
-│                                                                      │
-└─────────────────────────────────────────────────────────────────────┘
-```
+![KYC Journey Flow](images/UserFlowUpdated.png)
 
 ### **Scalability & Deployment Architecture**
 
-```
-┌─────────────────────────────────────────────────────────────────────┐
-│  DEPLOYMENT ARCHITECTURE (Production-Ready)                         │
-├─────────────────────────────────────────────────────────────────────┤
-│                                                                      │
-│  Current (Phase 1): Single-Server Deployment                        │
-│  ┌────────────────────────────────────────────────────┐            │
-│  │  Windows/Linux Server                              │            │
-│  │  ├─ Waitress WSGI (8 threads)                      │            │
-│  │  ├─ 100+ concurrent users supported                │            │
-│  │  ├─ Memory: ~450MB                                 │            │
-│  │  └─ CPU: <5% idle, <60% peak                       │            │
-│  └────────────────┬───────────────────────────────────┘            │
-│                   │ HTTPS (TLS 1.3)                                 │
-│                   ▼                                                  │
-│  ┌────────────────────────────────────────────────────┐            │
-│  │  MongoDB Atlas (Cloud)                             │            │
-│  │  ├─ Replica set (3 nodes)                          │            │
-│  │  ├─ Auto-scaling enabled                           │            │
-│  │  └─ Automatic failover                             │            │
-│  └────────────────────────────────────────────────────┘            │
-│                                                                      │
-│  Future (Phase 2): Load-Balanced Multi-Server                       │
-│  ┌────────────────────────────────────────────────────┐            │
-│  │  Load Balancer (NGINX/HAProxy)                     │            │
-│  └───────┬──────────────┬──────────────┬──────────────┘            │
-│          │              │              │                             │
-│          ▼              ▼              ▼                             │
-│    ┌─────────┐    ┌─────────┐    ┌─────────┐                       │
-│    │ Server 1│    │ Server 2│    │ Server 3│                       │
-│    └────┬────┘    └────┬────┘    └────┬────┘                       │
-│         └──────────────┴──────────────┘                             │
-│                        │                                             │
-│                        ▼                                             │
-│         ┌──────────────────────────────┐                            │
-│         │  Shared MongoDB Atlas Cluster│                            │
-│         └──────────────────────────────┘                            │
-│                                                                      │
-│  Capacity: 1,000+ concurrent users                                  │
-│                                                                      │
-└─────────────────────────────────────────────────────────────────────┘
-```
+![Scalability](images/FutureDeployments.png)
 
 ---
 
@@ -1584,24 +1351,7 @@ ENABLE_HTTPS=true
 
 ---
 
-## 📚 **Documentation**
 
-All documentation files have been consolidated into this README. Legacy documentation has been archived:
-
-- ~~`SETUP.md`~~ → Merged into README.md
-- ~~`HACKATHON_FEATURES.md`~~ → Merged into README.md
-- ~~`PRODUCTION_DEPLOYMENT_GUIDE.md`~~ → Merged into README.md
-- ~~`QUICK_TEST_GUIDE.md`~~ → Merged into README.md
-- ~~`IMPLEMENTATION_SUMMARY.md`~~ → Merged into README.md
-- ~~`CAMERA_INTEGRATION.md`~~ → Merged into README.md
-- ~~`FILE_BASED_AUDIT_LOGGING.md`~~ → Merged into README.md
-- ~~`REAL_AI_VALIDATION_IMPLEMENTATION.md`~~ → Merged into README.md
-- ~~`KYC_SYSTEM.md`~~ → Merged into README.md
-- ~~`COMPLETE_FEATURE_IMPLEMENTATION.md`~~ → Merged into README.md
-- ~~`INSTRUCTIONS_ORG_DASHBOARD_UPDATE.md`~~ → Merged into README.md
-- ~~`WINDOWS_PRODUCTION_SETUP.md`~~ → Merged into README.md
-
----
 
 ## 💼 **Business Impact**
 
@@ -1626,35 +1376,7 @@ All documentation files have been consolidated into this README. Legacy document
 
 ### **Scalability Model**
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│  SCALABILITY PROJECTIONS                                        │
-├─────────────────────────────────────────────────────────────────┤
-│                                                                  │
-│  Phase 1: Small Banks (1K-10K users/year)                      │
-│  ├─ Current Capacity: 100+ concurrent users ✅                 │
-│  ├─ Infrastructure: Single MongoDB Atlas cluster               │
-│  ├─ Cost: $0.15/verification                                   │
-│  └─ Status: READY NOW                                          │
-│                                                                  │
-│  Phase 2: Regional Banks (10K-100K users/year)                 │
-│  ├─ Estimated Capacity: 1,000+ concurrent                      │
-│  ├─ Infrastructure: Load balancer + 3-5 servers                │
-│  ├─ Cost: $0.12/verification (economies of scale)              │
-│  └─ Timeline: Architecture supports (add LB)                   │
-│                                                                  │
-│  Phase 3: National Banks (100K-1M users/year)                  │
-│  ├─ Estimated Capacity: 10,000+ concurrent                     │
-│  ├─ Infrastructure: Kubernetes cluster + CDN                   │
-│  ├─ Cost: $0.08/verification                                   │
-│  └─ Timeline: Microservices ready for K8s                      │
-│                                                                  │
-│  🌍 MARKET POTENTIAL:                                           │
-│  └─ Global KYC market: $1.8B (2025) → $3.2B (2030)             │
-│     Our addressable share: $150M-$300M                         │
-│                                                                  │
-└─────────────────────────────────────────────────────────────────┘
-```
+![Scalability Model](images/ProjectionsUpdated.png)
 
 ---
 
