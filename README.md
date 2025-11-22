@@ -764,15 +764,15 @@ Content-Type: application/json
 ### **Landing & Authentication**
 
 #### 🏠 Homepage
-![Homepage](images/screenshots/homepage.png)
+![Homepage](images/screenshots/HomePage.PNG)
 *Modern landing page with feature showcase and call-to-action*
 
 #### 🔐 Login Page
-![Login Page](images/screenshots/login.png)
+![Login Page](images/screenshots/Login.PNG)
 *Secure authentication with brute-force protection*
 
 #### 📝 Signup Page
-![Signup Page](images/screenshots/signup.png)
+![Signup Page](images/screenshots/signup.PNG)
 *User registration with real-time validation*
 
 ---
@@ -780,20 +780,20 @@ Content-Type: application/json
 ### **User Experience**
 
 #### 📊 User Dashboard
-![User Dashboard](images/screenshots/UD1.png)
+![User Dashboard](images/screenshots/UD1.PNG)
 *KYC status tracking, consent management, and credential display*
 
 #### 🎯 KYC Flow - Step 1
-![KYC Step 1](images/screenshots/PreCheck.png)
+![KYC Step 1](images/screenshots/PreCheck.PNG)
 *Personal information collection with validation*
 
 #### 📄 KYC Flow - Document Upload
-![Document Upload](images/screenshots/DocumentUploadRedact.png)
+![Document Upload](images/screenshots/DocumentUploadRedact.PNG)
 *Document upload with live OCR preview and quality checks*
 *Note: Photo is redacted for privavcy reason*
 
 #### 📸 KYC Flow - Face Verification
-![Face Verification](images/screenshots/FaceRedact.png)
+![Face Verification](images/screenshots/FaceRedact.PNG)
 *Live camera capture with deepfake detection and liveness check*
 *Note: Photo is redacted for privavcy reason*
 
@@ -802,11 +802,11 @@ Content-Type: application/json
 ### **Organization & Admin Portals**
 
 #### 🏢 Organization Dashboard
-![Organization Dashboard](images/screenshots/OrgDashboard.png)
+![Organization Dashboard](images/screenshots/OrgDashboard.PNG)
 *Consent request management and credential verification*
 
 #### 🔧 Admin Dashboard
-![Admin Dashboard](images/screenshots/Admin.png)
+![Admin Dashboard](images/screenshots/Admin.PNG)
 *System monitoring, manual review queue, and analytics*
 
 
