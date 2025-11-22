@@ -759,6 +759,60 @@ Content-Type: application/json
 
 ---
 
+## 🖼️ **Frontend Screenshots**
+
+### **Landing & Authentication**
+
+#### 🏠 Homepage
+![Homepage](images/screenshots/homepage.png)
+*Modern landing page with feature showcase and call-to-action*
+
+#### 🔐 Login Page
+![Login Page](images/screenshots/login.png)
+*Secure authentication with brute-force protection*
+
+#### 📝 Signup Page
+![Signup Page](images/screenshots/signup.png)
+*User registration with real-time validation*
+
+---
+
+### **User Experience**
+
+#### 📊 User Dashboard
+![User Dashboard](images/screenshots/UD1.png)
+*KYC status tracking, consent management, and credential display*
+
+#### 🎯 KYC Flow - Step 1
+![KYC Step 1](images/screenshots/PreCheck.png)
+*Personal information collection with validation*
+
+#### 📄 KYC Flow - Document Upload
+![Document Upload](images/screenshots/DocumentUploadRedact.png)
+*Document upload with live OCR preview and quality checks*
+*Note: Photo is redacted for privavcy reason*
+
+#### 📸 KYC Flow - Face Verification
+![Face Verification](images/screenshots/FaceRedact.png)
+*Live camera capture with deepfake detection and liveness check*
+*Note: Photo is redacted for privavcy reason*
+
+---
+
+### **Organization & Admin Portals**
+
+#### 🏢 Organization Dashboard
+![Organization Dashboard](images/screenshots/OrgDashboard.png)
+*Consent request management and credential verification*
+
+#### 🔧 Admin Dashboard
+![Admin Dashboard](images/screenshots/Admin.png)
+*System monitoring, manual review queue, and analytics*
+
+
+
+---
+
 ## 🧪 **Advanced Features**
 
 ### 🤖 **Deepfake Detection**
